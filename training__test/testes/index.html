@@ -1,0 +1,819 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <title>Quem me viu!</title>
+    <!-- Adjust Screen -->
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Roboto Font  -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <!-- Main CSS (sass compiled)> -->
+    <style>
+    body{
+        /* background-color:#fafafa; */
+        background-color:#f5f5f5;
+        /* padding:16px; */
+        padding: 0;
+        font-family:'Roboto', sans-serif;
+    }
+    /* ------------------------------------------------------------- Utilizar daqui para baixo */
+    section{
+        margin: 0 auto;
+    }
+    h1, h2, h3, h4, h5, h6{
+        font-weight: normal;
+        color: #000000;
+    }
+    /* cabeçalho */
+    .container{
+        width: 60%;
+    }
+    .modal{
+        background-color:rgba(27, 27, 27, 1);
+    }
+    .header__container{
+        background-color: #ffffff;
+        height: 64px;
+        display: flex;
+        width: 100%;
+    }
+    .header__logo{
+        display: flex;
+        align-items: center;
+        width: auto;
+        height: 100%;
+    }
+    .header__log__in{
+        text-align: right;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    .header__login__link{
+        font-weight: 500;
+        font-size: .9em;
+        color: #a5a5a5;
+        text-decoration: none;
+    }
+    .login__icone{
+        font-size: .8em;
+        color: #a5a5a5;
+        padding-left: 4px;
+    }
+    .header__login__link:hover{
+        text-decoration: none;
+    }
+    .header__login__link:hover ~ .login__icone{
+        cursor: pointer;
+        color: #004c88;
+        text-decoration: none;
+    }
+    /* vaga e descricao da vaga */
+    .title__vaga__container{
+        background-color: #01457d;
+        color: #ffffff;
+        height: 100%;
+        padding-bottom: 200px;
+    }
+    .title__vaga__bloco{
+        padding-top: 48px;
+    }
+    .title__vaga__titulo{
+        color: #ffffff;
+        font-weight: bold;
+    }
+    .title__vaga__content{
+        font-size: 1.5em;
+        padding-left: 32px;
+    }
+    .title__vaga__descricao{
+        margin: 0;
+    }
+    .title__vaga__button{
+        padding-left: 32px;
+    }
+    .title__vaga__button .button{
+        background-color: #ffc501;
+        color: #463001;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 12px;
+        font-size: .7em;
+    }
+    .descricao__vaga__container{
+        color: #a5a5a5;
+        margin-top: -172px;
+        border-radius: 8px 8px 0 0;
+        box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.19);
+    }
+    .bloco__descricao__vaga:nth-child(1){
+        padding-top: 40px;
+    }
+    .bloco__descricao__vaga{
+        color: #979797;
+        padding: 8px 24px;
+    }
+    .descricao__vaga__container{
+        background-color: #ffffff;
+        border-radius: 8px 8px 0 0;
+    }
+    .bloco__descricao__vaga__titulo{
+        font-weight: bold;
+        color: #414141;
+        margin-top: 0px;
+    }
+    .bloco__descricao__vaga__conteudo{
+        word-break: break-all;
+        line-height: 150%;
+        font-size: 1em;
+        margin: 0;
+    }
+    .vaga__codigo__publicacao{
+        display: flex;
+        margin: 20px;
+        flex-wrap: wrap;
+    }
+    .vaga__codigo__p{
+        color: #414141;
+        margin-right: 8px;
+        font-size: .8em;
+        background-color: #f5f5f5;
+        padding: 4px 8px;
+        border-radius: 4px;
+        line-height: 130%;
+    }
+    .button__section{
+        background-color: #004c88;
+        border-radius: 0 0 8px 8px;
+    }
+    .button__container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 36px 8px;
+    }
+    .button__candidatar__area{
+        margin: 0 auto;
+    }
+
+    .button__candidatar{
+        color: #463001;
+        background-color: #ffc501;
+        padding: 8px 48px;
+        border: none;
+        border-radius: 4px;
+        font-weight: bold;
+        width: 100%;
+        margin: 0;
+    }
+    .button__section__content{
+        padding-top: 16px;
+    }
+    .button__section__p{
+        margin: 0;
+        color: #ffffff;
+    }
+    /* vaga aparece em */
+    .vaga__aparece__em{
+        padding-bottom: 32px;
+    }
+    .vaga__aparece__em__título{
+        font-weight: bolder;
+        font-size: 1.2em;
+        padding: 32px 0 0;
+        text-align: center;
+    }
+    .vaga__aparece__em__conteudo{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .vaga__aparece__em__paragraph{
+        background-color: #ffffff;
+        color: #414141;
+        margin: 4px;
+        font-weight: 500;
+        font-size: .9em;
+        border-radius: 4px;
+        padding: 4px 8px;
+    }
+    .vagas__parecidas__blocos{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .vagas__parecidas__container{
+        width: 64%;
+    }
+    .vaga__parecida__bloco{
+        margin: 24px 12px;
+        width: 100%;
+    }
+    .vaga__parecida__header__bloco{
+        background-color: #004c88;
+        color: #ffffff;
+        padding: 24px;
+        border-radius: 8px 8px 0 0;
+    }
+    .titulo__vagas__parecidas__bloco{
+        font-weight: bolder;
+        font-size: 1.1em;
+        margin: 0;
+    }
+    .descricao__vagas__parecidas__bloco{
+        font-size: .85em;
+        margin: 0;
+    }
+    .button__vaga__parecida__bloco{
+        background-color: #ffffff;
+        border-radius: 0 0 8px 8px;
+        padding: 16px;
+        display: flex;
+        justify-content: center;
+        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.19);
+    }
+    .vagas__parecidas__titulo{
+        font-weight: bolder;
+        font-size: 1.2em;
+        text-align: center;
+    }
+    .vaga__parecida__button{
+        background-color: #004c88;
+        color: #ffffff;
+        border-radius: 4px;
+        border: none;
+        align-items: center;
+        font-size: .7em;
+        padding: 4px 32px;
+        font-weight: bolder;
+    }
+    .vaga__parecida__button:hover{
+        text-decoration: none;
+        cursor: pointer;
+        color: #ffffff;
+    }
+    /* Modal Enviando candidatura */
+    .modal{
+        background-color: rgba(0, 0, 0, .8);
+    }
+    .modal-content{
+        border-radius: 8px;
+    }
+    .modal-header{
+        background-color: #004c88;
+        border-radius: 8px 8px 0 0;
+    }
+    .modal-title{
+        padding: 8px 16px 0;
+        color: #ffffff;
+        font-weight: bolder;
+        text-align: center;
+        font-size: 1.7em;
+        margin: 0;
+    }
+    .modal-subtitle{
+        margin: 0;
+        padding-bottom: 8px;
+        color: #ffffff;
+        text-align: center;
+        font-size: 1em;
+    }
+    .modal-body{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1em;
+    }
+    .wait__text__modal__area{
+        padding: 16px;
+    }
+    .wait__text__modal{
+        color: #818181;
+        background-color: #d7d7d7;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 64px;
+    }
+    .modal__body__paragraph{
+        line-height: 130%;
+        text-align: center;
+        color: #545454;
+        margin: 16px 0;
+    }
+    /* Modal candidaturas acabaram */
+    .modal__acabaram__body__paragraph{
+        line-height: 130%;
+        text-align: center;
+        color: #545454;
+        margin: 16px 0;
+    }
+    .btn__modal__candidaturas__acabaram{
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn__modal__selos{
+        color: #9a9a9a;
+        background-color: #ffffff;
+        border: 2px solid #d7d7d7;
+        border-radius: 4px;
+        padding: 8px 100px;
+    }
+    .btn__modal__vip{
+        color: #443000;
+        background-color: #ffc501;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 100px;
+    }
+    /* modal candidatura enviada */
+    .btn__modal__candidatura__sucesso{
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn__modal__continuar{
+        color: #9a9a9a;
+        background-color: #ffffff;
+        border: 2px solid #d7d7d7;
+        border-radius: 4px;
+        padding: 8px 112px;
+    }
+    .btn__modal__obter__vip{
+        color: #443000;
+        background-color: #ffc501;
+        border: none;
+        border-radius: 4px;
+        padding: 8px 32px;
+    }
+    .icone__check__area{
+        margin:16px;
+        border: solid 28px #004c88;
+        border-radius: 50%;
+    }
+    .icone__check{
+        padding:32px;
+        font-size: 9em;
+        color: #004c88;
+    }
+    #myModal .modal-dialog, #modalCandidaturaEnviada .modal-dialog, #modalCandidaturasAcabaram .modal-dialog{
+        transform: translate(0,-50%);
+        top: 50%;
+        margin: 0 auto;
+    }
+    @media screen and (max-width:959px){
+        .vagas__parecidas__blocos{
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+    /* Quem me viu */
+
+    @media screen and (max-width:599px){
+        .container{
+            margin-right: 8px;
+            margin-left: 8px;
+            width: auto;
+        }
+        .modal-dialog{
+            text-align: center;
+        }
+        .header__logo .img{
+            width: 170px;
+        }
+        .modal-dialog{
+            width: 100%;
+        }
+        .btn__modal__obter__vip{
+            padding: 8px 16px;
+        }
+        .btn__modal__continuar{
+            padding: 8px 92px;
+        }
+        .button__candidatar{
+            padding: 8px 24px;
+        }
+    }
+    @media screen and (min-width:600px) and (max-width:959px){
+        .container{
+            margin-right: 32px;
+            margin-left: 32px;
+            width: auto;
+        }
+        .vaga__parecida__bloco{
+            width: auto;
+        }
+    }
+
+    /* circulo de percentagem modal */
+    .percent__area{
+        margin: 0 auto;
+    }
+    .c100{
+        background-color: #f5f5f5;
+        width: 10em;
+        height: 10em;
+        position: relative;
+        border-radius: 50%;
+        background-color: #d3d3d3;
+        font-size: 25px;
+    }
+    .c100 > span{
+        color: #004c88;
+        position: absolute;
+        z-index: 1;
+        font-size: 2.5em;
+        top: calc(50% - 0.8125em);
+        left: calc(50% - 0.8125em);
+    }
+    .c100 .bar, .c100 .fill{
+        border-color: #004c88 !important;
+    }
+    .c100 .slice{
+        position: relative;
+        width: 10em;
+        height: 10em;
+        clip: rect(0, 1em, 1em, 0.5em);
+    }
+    .c100.p29 .bar{
+        transform: rotate(0.4deg);
+    }
+    .c100 .bar{
+        position: absolute;
+        border: 1.5em solid #307bbb;
+        width: 7em;
+        height: 7em;
+        /* clip: rect(0em, 5em, 10.5em, 0em); */
+        clip: rect(0em, 5em, 10.5em, 0em);
+        border-radius: 50%;
+        transform: rotate(0deg);
+        animation: loading 5s linear forwards;
+    }
+    .c100::after{
+        position: absolute;
+        top: calc(50% - 3.5em);
+        left: calc(50% - 3.5em);
+        display: block;
+        content: " ";
+        border-radius: 50%;
+        width: 7em;
+        height: 7em;
+        transition: all .2s ease-in;
+        background-color: #fafafa;
+    }
+    .percent__area::before, .percent__area::after{
+        content: " ";
+        display: table;
+    }
+    .c100 *, .c100::before, .c100::after{
+        box-sizing: content-box;
+    }
+    @-webkit-keyframes loading {
+        from{
+            transform: rotate(0deg);
+            /* background-color: white; */
+        }
+        to{
+            transform: rotate(360deg);
+            /* background-color: white; */
+        }
+    }
+    @keyframes loading {
+        from{
+            transform: rotate(0deg);
+            /* background-color: white; */
+        }
+        to{
+            transform: rotate(360deg);
+            /* background-color: white; */
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- cabeçalho -->
+    <header>
+        <div class="container-fluid header__container">
+            <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1 header__logo">
+                <img class="img" src="images/nova-pagina-vaga.jpg">
+            </div>
+            <div class="col-xs-8 col-sm-9 col-md-10 col-lg-11 header__log__in">
+                <a href="#" class="header__login__link">
+                    ENTRAR
+                </a>
+                <div class="login__icone">
+                    <span class="fas fa-sign-in-alt fa-1x"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- titulo da vaga -->
+    <section>
+        <div class="title__vaga__container">
+            <div class="title__vaga__bloco">
+                <div class="container title__vaga__content">
+                    <h2 class="title__vaga__titulo">
+                        Vaga de Consultor Comercial
+                    </h2>
+                    <p class="title__vaga__descricao">
+                        Colombo/PR
+                        <p>
+                            Salário de R$ 954,00 a R$ 1.054,00
+                        </p>
+                    </p>
+                </div>
+                <div class="container title__vaga__button">
+                    <strong>
+                        <button type="button" name="button" class="button">VER DADOS DA EMPRESA</button>
+                    </strong>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- descrição da vaga -->
+    <section>
+        <div class="container descricao__vaga__container">
+            <div class="bloco__descricao__vaga">
+                <h4 class="bloco__descricao__vaga__titulo">Atribuições</h4>
+                <p class="bloco__descricao__vaga__conteudo">
+                    textotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotexto<br>
+                    textotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextote<br>
+                    textotextotextotextotextotextotexto<br>
+                    textotextotextotextotextotextotextotextotextotextotextotextotext<br>
+                    textotextotextotextotextotex<br>
+
+                </p>
+            </div>
+            <div class="bloco__descricao__vaga">
+                <h4 class="bloco__descricao__vaga__titulo">Benefícios</h4>
+                <p class="bloco__descricao__vaga__conteudo">
+                    textotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotexto
+                    textotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotexto
+                </p>
+            </div>
+            <div class="bloco__descricao__vaga">
+                <h4 class="bloco__descricao__vaga__titulo">Requisitos</h4>
+                <p class="bloco__descricao__vaga__conteudo">
+                    textotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotexto
+                    textotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotextotexto
+                </p>
+            </div>
+            <div class="vaga__codigo__publicacao">
+                <p class="vaga__codigo__p">
+                    <b>Código da vaga:</b> V021645148
+                </p>
+                <p class="vaga__codigo__p">
+                    <b >Publicada em:</b>18/10/2018
+                </p>
+            </div>
+        </div>
+        <div class="container button__section">
+            <div class="button__container">
+                <div class="button__candidatar__area">
+                    <!-- abrir modal sem js -->
+
+                    <!-- <button onclick="move()" ontype="button" name="button" class="button" data-toggle="modal" data-target="#myModal">
+                        <strong>CANDIDATAR-SE</strong>
+                    </button> -->
+
+                    <!-- abrir modal com js -->
+                    <button onclick="move()" ontype="button" name="button" class="button__candidatar" id="myBtn">
+                        CANDIDATAR-SE
+                    </button>
+                </div>
+                <div class="button__section__content">
+                    <p class="button__section__p">Fique Tranquilo, BNE também é grátis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- vaga aparece em  -->
+    <section>
+        <div class="container vaga__aparece__em">
+            <div class="vaga__aparece__em__título">
+                Esta vaga aparece em:
+            </div>
+            <div class="vaga__aparece__em__conteudo">
+                <p class="vaga__aparece__em__paragraph">Vagas para Consultor Comercial</p>
+                <p class="vaga__aparece__em__paragraph">Vagas em Colombo/PR</p>
+                <p class="vaga__aparece__em__paragraph">Vagas para Consultor Comercial em Colombo/PR</p>
+                <p class="vaga__aparece__em__paragraph">Vagas na área de Comércio</p>
+            </div>
+        </div>
+    </section>
+    <!-- vagas que são parecidas -->
+    <section>
+        <div class="container vagas__parecidas__container">
+            <div class="container vagas__parecidas__titulo">
+                Vagas parecidas com esta:
+            </div>
+            <div class="vagas__parecidas__blocos">
+                <div class="vaga__parecida__bloco">
+                    <div class="vaga__parecida__header__bloco">
+                        <p class="titulo__vagas__parecidas__bloco">
+                            Vaga de Consultor Comercial
+                        </p>
+                        <p class="descricao__vagas__parecidas__bloco">
+                            Colombo/PR
+                        </p>
+                        <p class="descricao__vagas__parecidas__bloco">
+                            Salário de R$ 954,00 a R$ 1054,00
+                        </p>
+                    </div>
+                    <div class="button__vaga__parecida__bloco">
+                        <a href="" name="button" class="vaga__parecida__button">
+                            VISUALIZAR VAGA
+                        </a>
+                    </div>
+                </div>
+                <div class="vaga__parecida__bloco">
+                    <div class="vaga__parecida__header__bloco">
+                        <p class="titulo__vagas__parecidas__bloco">
+                            Vaga de Consultor Comercial
+                        </p>
+                        <p class="descricao__vagas__parecidas__bloco">
+                            Colombo/PR
+                        </p>
+                        <p class="descricao__vagas__parecidas__bloco">
+                            Salário de R$ 954,00 a R$ 1054,00
+                        </p>
+                    </div>
+                    <div class="button__vaga__parecida__bloco">
+                        <a href="" name="button" class="vaga__parecida__button">
+                            VISUALIZAR VAGA
+                        </a>
+                    </div>
+                </div>
+                <div class="vaga__parecida__bloco">
+                    <div class="vaga__parecida__header__bloco">
+                        <p class="titulo__vagas__parecidas__bloco">
+                            Vaga de Consultor Comercial
+                        </p>
+                        <p class="descricao__vagas__parecidas__bloco">
+                            Colombo/PR
+                        </p>
+                        <p class="descricao__vagas__parecidas__bloco">
+                            Salário de R$ 954,00 a R$ 1054,00
+                        </p>
+                    </div>
+                    <div class="button__vaga__parecida__bloco">
+                        <a href="" name="button" class="vaga__parecida__button">
+                            VISUALIZAR VAGA
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Enviando candidatura-->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Estamos enviando seu currículo</h4>
+                    <p class="modal-subtitle">
+                        localizando responsável pela vaga...
+                    </p>
+                </div>
+                <div class="modal-body">
+                    <div class="percent__area">
+                        <div class="c100 p29">
+                            <span id="percent">0%</span>
+                            <div class="slice">
+                                <div class="bar"></div>
+                                <div class="fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="modal__body__paragraph">Aguarde alguns instantes enquanto efetuamos a sua candidatura</p>
+                    <div class="wait__text__modal__area">
+                        <p name="aguarde" class="wait__text__modal">
+                            <strong>AGUARDE</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal candidaturas acabaram -->
+    <div class="modal fade" id="modalCandidaturasAcabaram" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Ops, suas candidaturas acabaram!</h4>
+                    <p class="modal-subtitle">
+                        Você já utilizou suas 3 candidaturas grátis
+                    </p>
+                </div>
+                <div class="modal-body">
+                    <p class="modal__body__paragraph">
+                        Agora você  pode acumular selos e trocar por candidaturas ou<br>
+                        assinar o VIP e obter diversas vantagens, além de candidaturas ilimitadas</p>
+                    </p>
+                    <div class="btn__modal__candidaturas__acabaram">
+                        <div class="btn__modal__blocos">
+                            <button name="btn1" class="btn__modal__selos">
+                                <strong>COLETAR SELOS</strong>
+                            </button>
+                        </div>
+                        <p style="margin:8px 0;">ou</p>
+                        <div class="btn__modal__blocos">
+                            <button name="btn2" class="btn__modal__vip">
+                                <strong>QUERO SER VIP</strong>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal candidatura enviada-->
+    <div class="modal fade" id="modalCandidaturaEnviada" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Pronto Nome!</h4>
+                    <p class="modal-subtitle">
+                        Candidatura realizada com sucesso!
+                    </p>
+                </div>
+                <div class="modal-body">
+                    <div class="icone__check__area">
+                        <span class="icone__check fas fa-check"></span>
+                    </div>
+                    <p class="modal__body__paragraph">
+                        Agora é só aguardar o responsável pela vaga visualizar seu currículo.<br>
+                        Avisaremos assim que isso acontecer.<br>
+                        Você ainda possui <strong>02 candidaturas</strong> gratuitas
+                    </p>
+                    <div class="btn__modal__candidatura__sucesso">
+                        <div class="btn__modal__blocos">
+                            <button name="btn1" class="btn__modal__continuar" data-dismiss="modal">
+                                <strong>CONTINUAR</strong>
+                            </button>
+                        </div>
+                        <p style="margin:8px 0;">ou</p>
+                        <div class="btn__modal__blocos">
+                            <button name="btn2" class="btn__modal__obter__vip">
+                                <strong>OBTER CANDIDATURAS ILIMITADAS</strong>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#myBtn").click(function(){
+            // $("#myModal").modal({backdrop: "static"}); não pode fechar a modal clickando fora dela
+            $("#myModal").modal("show");
+        });
+    });
+    // // modalCandidaturasAcabaram
+    // $(document).ready(function(){
+    //     $("#myBtn").click(function(){
+    //         // $("#myModal").modal({backdrop: "static"}); não pode fechar a modal clickando fora dela
+    //         $("#modalCandidaturasAcabaram").modal("show");
+    //     });
+    // });
+    // // modalCandidaturaEnviada
+    // $(document).ready(function(){
+    //     $("#myBtn").click(function(){
+    //         // $("#myModal").modal({backdrop: "static"}); não pode fechar a modal clickando fora dela
+    //         $("#modalCandidaturaEnviada").modal("show");
+    //     });
+    // });
+    function move() {
+      var elem = document.getElementById("percent");
+      var width = 0;
+      var id = setInterval(frame, 50);
+      function frame() {
+        if (width >= 99) {
+          clearInterval(id);
+        } else {
+          width++;
+          elem.style.innerHTML = width + '%';
+          elem.innerHTML = width * 1  + '%';
+        }
+      }
+    }
+</script>
