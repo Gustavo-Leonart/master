@@ -788,32 +788,31 @@
             $("#myModal").modal("show");
         });
     });
-    // // modalCandidaturasAcabaram
-    // $(document).ready(function(){
-    //     $("#myBtn").click(function(){
-    //         // $("#myModal").modal({backdrop: "static"}); não pode fechar a modal clickando fora dela
-    //         $("#modalCandidaturasAcabaram").modal("show");
-    //     });
-    // });
-    // // modalCandidaturaEnviada
-    // $(document).ready(function(){
-    //     $("#myBtn").click(function(){
-    //         // $("#myModal").modal({backdrop: "static"}); não pode fechar a modal clickando fora dela
-    //         $("#modalCandidaturaEnviada").modal("show");
-    //     });
-    // });
     function move() {
       var elem = document.getElementById("percent");
-      var width = 0;
+      var perc = 0;
       var id = setInterval(frame, 50);
       function frame() {
-        if (width >= 99) {
-          clearInterval(id);
+        if (perc >= 100) {
+            clearInterval(id);
+            $(document).ready(function(){
+                $("#modalCandidaturaEnviada").modal("show");
+                $("#myModal").modal("hide");
+            });
         } else {
-          width++;
-          elem.style.innerHTML = width + '%';
-          elem.innerHTML = width * 1  + '%';
+          perc++;
+          elem.innerHTML = perc * 1  + '%';
         }
-      }
+        // var button = document.getElementByClassName("button__candidatar"), count = 0;
+        // button.onclick = function() {
+        //     count += 1;
+        // }
+        // if(count >= 4){
+        //     $(document).ready(function(){
+        //         $("#modalCandidaturasAcabaram").modal("show");
+        //         $("#myModal").modal("hide");
+        //     });
+        // }
+        }
     }
 </script>
