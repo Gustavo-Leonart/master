@@ -453,11 +453,28 @@
         border: 1.5em solid #307bbb;
         width: 7em;
         height: 7em;
-        /* clip: rect(0em, 5em, 10.5em, 0em); */
-        clip: rect(0em, 5em, 10.5em, 0em);
+        clip: rect(0em, 5em, 10em, 0em);
         border-radius: 50%;
-        transform: rotate(0deg);
-        animation: loading 5s linear forwards;
+        animation: loading 2.5s linear forwards;
+    }
+    .c100 .fill{
+        position: absolute;
+        border: 1.5em solid #307bbb;
+        width: 7em;
+        height: 7em;
+        clip: rect(0em, 5em, 10em, 0em);
+        border-radius: 50%;
+        z-index: 0;
+        animation: loading2 5s linear forwards;
+    }
+    .c100 .stopedBar{
+        position: absolute;
+        border: 1.5em solid #d3d3d3;
+        width: 7em;
+        height: 7em;
+        clip: rect(0em, 5em, 10em, 0em);
+        z-index: 1;
+        border-radius: 50%;
     }
     .c100::after{
         position: absolute;
@@ -494,8 +511,20 @@
             /* background-color: white; */
         }
         to{
+            transform: rotate(180deg);
+            /* background-color: white; */
+        }
+    }
+    @keyframes loading2 {
+        from{
+            transform: rotate(0deg);
+            z-index: 0;
+            /* background-color: white; */
+        }
+        to{
             transform: rotate(360deg);
             /* background-color: white; */
+            z-index: 3;
         }
     }
     </style>
@@ -551,7 +580,6 @@
                     textotextotextotextotextotextotexto<br>
                     textotextotextotextotextotextotextotextotextotextotextotextotext<br>
                     textotextotextotextotextotex<br>
-
                 </p>
             </div>
             <div class="bloco__descricao__vaga">
@@ -581,13 +609,11 @@
             <div class="button__container">
                 <div class="button__candidatar__area">
                     <!-- abrir modal sem js -->
-
                     <!-- <button onclick="move()" ontype="button" name="button" class="button" data-toggle="modal" data-target="#myModal">
                         <strong>CANDIDATAR-SE</strong>
                     </button> -->
-
                     <!-- abrir modal com js -->
-                    <button onclick="move()" ontype="button" name="button" class="button__candidatar" id="myBtn">
+                    <button onclick="numberPercent()" ontype="button" name="button" class="button__candidatar" id="myBtn">
                         CANDIDATAR-SE
                     </button>
                 </div>
@@ -693,6 +719,7 @@
                             <div class="slice">
                                 <div class="bar"></div>
                                 <div class="fill"></div>
+                                <div class="stopedBar"></div>
                             </div>
                         </div>
                     </div>
@@ -788,31 +815,21 @@
             $("#myModal").modal("show");
         });
     });
-    function move() {
-      var elem = document.getElementById("percent");
-      var perc = 0;
-      var id = setInterval(frame, 50);
-      function frame() {
-        if (perc >= 100) {
-            clearInterval(id);
-            $(document).ready(function(){
-                $("#modalCandidaturaEnviada").modal("show");
-                $("#myModal").modal("hide");
-            });
-        } else {
-          perc++;
-          elem.innerHTML = perc * 1  + '%';
-        }
-        // var button = document.getElementByClassName("button__candidatar"), count = 0;
-        // button.onclick = function() {
-        //     count += 1;
-        // }
-        // if(count >= 4){
-        //     $(document).ready(function(){
-        //         $("#modalCandidaturasAcabaram").modal("show");
-        //         $("#myModal").modal("hide");
-        //     });
-        // }
+    function numberPercent() {
+        var elem = document.getElementById("percent");
+        var perc = 0;
+        var id = setInterval(frame, 50);
+        function frame() {
+            if (perc >= 100) {
+                clearInterval(id);
+                $(document).ready(function(){
+                    $("#modalCandidaturaEnviada").modal("show");
+                    $("#myModal").modal("hide");
+                });
+            } else {
+                perc++;
+                elem.innerHTML = perc * 1  + '%';
+            }
         }
     }
 </script>
