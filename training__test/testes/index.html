@@ -10,7 +10,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
     <!-- Bootstrap  -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" > -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <!-- Main CSS (sass compiled)> -->
     <style>
@@ -23,6 +23,10 @@
         font-family:'Roboto', sans-serif;
     }
     /* ------------------------------------------------------------- Utilizar daqui para baixo */
+    a:hover, a:focus{
+     color: inherit;
+     text-decoration: none;
+    }
     section{
         margin: 0 auto;
     }
@@ -66,17 +70,18 @@
         color: #a5a5a5;
         text-decoration: none;
     }
+    .header__login__link > i{
+        font: normal FontAwesome;
+        font-size: .8em;
+    }
     .login__icone{
         font-size: .8em;
         color: #a5a5a5;
         padding-left: 4px;
     }
     .header__login__link:hover{
-        text-decoration: none;
-    }
-    .header__login__link:hover{
         cursor: pointer;
-        color: #004c88;
+        color: #a5a5a5;
         text-decoration: none;
     }
     /* vaga e descricao da vaga */
@@ -110,6 +115,7 @@
         border-radius: 4px;
         padding: 8px 12px;
         font-size: .7em;
+        font-weight: 900;
     }
     .descricao__vaga__container{
         color: #a5a5a5;
@@ -212,7 +218,6 @@
     .vaga__aparece__em__paragraph:hover{
         cursor: pointer;
         text-decoration: none;
-        color: #004c88;
     }
     .vagas__parecidas__blocos{
         display: flex;
@@ -344,6 +349,7 @@
         border: none;
         border-radius: 4px;
         padding: 8px 100px;
+        font-weight: 900;
     }
     /* modal candidatura enviada */
     .btn__modal__candidatura__sucesso{
@@ -398,7 +404,7 @@
     .c100 > span{
         color: #004c88;
         position: absolute;
-        z-index: 1;
+        z-index: 10;
         font-size: 2.5em;
         top: calc(50% - 0.75em);
         left: calc(50% - 0.75em);
@@ -423,6 +429,7 @@
         clip: rect(0em, 5.5em, 11em, 0em);
         border-radius: 50%;
         animation: loading 2.5s linear forwards;
+        z-index: -1;
     }
     .c100 .fill{
         position: absolute;
@@ -432,11 +439,11 @@
         clip: rect(0em, 5.5em, 11em, 0em);
         border-radius: 50%;
         animation: loading2 5s linear forwards;
-        z-index: 0;
+        z-index: -1;
     }
     .c100 .fixedBar{
         position: absolute;
-        border: 2.05em solid #d3d3d3;
+        border: 2em solid #d3d3d3;
         width: 7em;
         height: 7em;
         clip: rect(0em, 5.5em, 11em, 0em);
@@ -454,6 +461,7 @@
         height: 7em;
         transition: all .2s ease-in;
         background-color: #fafafa;
+        z-index: 9;
     }
     .percent__area::before, .percent__area::after{
         content: " ";
@@ -465,20 +473,24 @@
     @-webkit-keyframes loading {
         from{
             transform: rotate(0deg);
+            z-index: -1;
             /* background-color: white; */
         }
         to{
             transform: rotate(360deg);
+            z-index: 1;
             /* background-color: white; */
         }
     }
     @keyframes loading {
         from{
             transform: rotate(0deg);
+            z-index: -1;
             /* background-color: white; */
         }
         to{
             transform: rotate(180deg);
+            z-index: 1;
             /* background-color: white; */
         }
     }
@@ -542,12 +554,14 @@
     <header>
         <div class="container-fluid header__container">
             <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1 header__logo">
-                <img class="img" src="images/nova-pagina-vaga.jpg">
+                <a href="https://www.bne.com.br/">
+                    <img class="img" src="images/nova-pagina-vaga.jpg">
+                </a>
             </div>
             <div class="col-xs-8 col-sm-11 col-md-11 col-lg-11 header__log__in">
                 <a href="#" class="header__login__link">
                     ENTRAR
-                    <span class="fas fa-sign-in-alt fa-1x"></span>
+                    <i class="fa fa-sign-in-alt"></i>
                 </a>
             </div>
         </div>
@@ -568,9 +582,7 @@
                     </p>
                 </div>
                 <div class="container title__vaga__button">
-                    <strong>
-                        <button type="button" name="button" class="button">VER DADOS DA EMPRESA</button>
-                    </strong>
+                    <button type="button" name="button" class="button">VER DADOS DA EMPRESA</button>
                 </div>
             </div>
         </div>
@@ -763,7 +775,7 @@
                         <p style="margin:8px 0;">ou</p>
                         <div class="btn__modal__blocos">
                             <button name="btn2" class="btn__modal__vip">
-                                <strong>QUERO SER VIP</strong>
+                                QUERO SER VIP
                             </button>
                         </div>
                     </div>
