@@ -227,10 +227,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 100%;
+        width: 60%;
+        padding: 0;
     }
-    .vagas__parecidas__container{
-        width: 64%;
+    .vaga__parecida__bloco:first-of-type{
+        margin-left: 0px;
+    }
+    .vaga__parecida__bloco:last-of-type{
+        margin-right: 0px;
     }
     .vaga__parecida__bloco{
         margin: 24px 12px;
@@ -549,39 +553,35 @@
 </head>
 <body>
     <!-- cabeçalho -->
-    <header>
-        <div class="container-fluid header__container">
-            <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1 header__logo">
-                <a href="https://www.bne.com.br/">
-                    <img class="img" src="images/nova-pagina-vaga.jpg">
-                </a>
-            </div>
-            <div class="col-xs-8 col-sm-11 col-md-11 col-lg-11 header__log__in">
-                <a href="#" class="header__login__link">
-                    ENTRAR
-                    <i class="fa fa-sign-in-alt"></i>
-                </a>
-            </div>
+    <header class="container-fluid header__container">
+        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1 header__logo">
+            <a href="https://www.bne.com.br/">
+                <img class="img" src="images/nova-pagina-vaga.jpg">
+            </a>
+        </div>
+        <div class="col-xs-8 col-sm-11 col-md-11 col-lg-11 header__log__in">
+            <a href="#" class="header__login__link">
+                ENTRAR
+                <i class="fa fa-sign-in-alt"></i>
+            </a>
         </div>
     </header>
     <!-- titulo da vaga -->
-    <section>
-        <div class="title__vaga__container">
-            <div class="title__vaga__bloco">
-                <div class="container title__vaga__content">
-                    <h2 class="title__vaga__titulo">
-                        Vaga de Consultor Comercial
-                    </h2>
-                    <p class="title__vaga__descricao">
-                        Colombo/PR
-                        <p>
-                            Salário de R$ 954,00 a R$ 1.054,00
-                        </p>
+    <section class="title__vaga__container">
+        <div class="title__vaga__bloco">
+            <div class="container title__vaga__content">
+                <h2 class="title__vaga__titulo">
+                    Vaga de Consultor Comercial
+                </h2>
+                <p class="title__vaga__descricao">
+                    Colombo/PR
+                    <p>
+                        Salário de R$ 954,00 a R$ 1.054,00
                     </p>
-                </div>
-                <div class="container title__vaga__button">
-                    <button type="button" name="button" class="button">VER DADOS DA EMPRESA</button>
-                </div>
+                </p>
+            </div>
+            <div class="container title__vaga__button">
+                <button type="button" name="button" class="button">VER DADOS DA EMPRESA</button>
             </div>
         </div>
     </section>
@@ -654,65 +654,63 @@
         </div>
     </section>
     <!-- vagas que são parecidas -->
-    <section>
-        <div class="container vagas__parecidas__container">
-            <div class="container vagas__parecidas__titulo">
-                Vagas parecidas com esta:
+    <section class="vagas__parecidas__container">
+        <div class="container vagas__parecidas__titulo">
+            Vagas parecidas com esta:
+        </div>
+        <div class="container vagas__parecidas__blocos">
+            <div class="vaga__parecida__bloco">
+                <div class="vaga__parecida__header__bloco">
+                    <p class="titulo__vagas__parecidas__bloco">
+                        Vaga de Consultor Comercial
+                    </p>
+                    <p class="descricao__vagas__parecidas__bloco">
+                        Colombo/PR
+                    </p>
+                    <p class="descricao__vagas__parecidas__bloco">
+                        Salário de R$ 954,00 a R$ 1054,00
+                    </p>
+                </div>
+                <div class="button__vaga__parecida__bloco">
+                    <a href="" name="button" class="vaga__parecida__button">
+                        VISUALIZAR VAGA
+                    </a>
+                </div>
             </div>
-            <div class="vagas__parecidas__blocos">
-                <div class="vaga__parecida__bloco">
-                    <div class="vaga__parecida__header__bloco">
-                        <p class="titulo__vagas__parecidas__bloco">
-                            Vaga de Consultor Comercial
-                        </p>
-                        <p class="descricao__vagas__parecidas__bloco">
-                            Colombo/PR
-                        </p>
-                        <p class="descricao__vagas__parecidas__bloco">
-                            Salário de R$ 954,00 a R$ 1054,00
-                        </p>
-                    </div>
-                    <div class="button__vaga__parecida__bloco">
-                        <a href="" name="button" class="vaga__parecida__button">
-                            VISUALIZAR VAGA
-                        </a>
-                    </div>
+            <div class="vaga__parecida__bloco">
+                <div class="vaga__parecida__header__bloco">
+                    <p class="titulo__vagas__parecidas__bloco">
+                        Vaga de Consultor Comercial
+                    </p>
+                    <p class="descricao__vagas__parecidas__bloco">
+                        Colombo/PR
+                    </p>
+                    <p class="descricao__vagas__parecidas__bloco">
+                        Salário de R$ 954,00 a R$ 1054,00
+                    </p>
                 </div>
-                <div class="vaga__parecida__bloco">
-                    <div class="vaga__parecida__header__bloco">
-                        <p class="titulo__vagas__parecidas__bloco">
-                            Vaga de Consultor Comercial
-                        </p>
-                        <p class="descricao__vagas__parecidas__bloco">
-                            Colombo/PR
-                        </p>
-                        <p class="descricao__vagas__parecidas__bloco">
-                            Salário de R$ 954,00 a R$ 1054,00
-                        </p>
-                    </div>
-                    <div class="button__vaga__parecida__bloco">
-                        <a href="" name="button" class="vaga__parecida__button">
-                            VISUALIZAR VAGA
-                        </a>
-                    </div>
+                <div class="button__vaga__parecida__bloco">
+                    <a href="" name="button" class="vaga__parecida__button">
+                        VISUALIZAR VAGA
+                    </a>
                 </div>
-                <div class="vaga__parecida__bloco">
-                    <div class="vaga__parecida__header__bloco">
-                        <p class="titulo__vagas__parecidas__bloco">
-                            Vaga de Consultor Comercial
-                        </p>
-                        <p class="descricao__vagas__parecidas__bloco">
-                            Colombo/PR
-                        </p>
-                        <p class="descricao__vagas__parecidas__bloco">
-                            Salário de R$ 954,00 a R$ 1054,00
-                        </p>
-                    </div>
-                    <div class="button__vaga__parecida__bloco">
-                        <a href="" name="button" class="vaga__parecida__button">
-                            VISUALIZAR VAGA
-                        </a>
-                    </div>
+            </div>
+            <div class="vaga__parecida__bloco">
+                <div class="vaga__parecida__header__bloco">
+                    <p class="titulo__vagas__parecidas__bloco">
+                        Vaga de Consultor Comercial
+                    </p>
+                    <p class="descricao__vagas__parecidas__bloco">
+                        Colombo/PR
+                    </p>
+                    <p class="descricao__vagas__parecidas__bloco">
+                        Salário de R$ 954,00 a R$ 1054,00
+                    </p>
+                </div>
+                <div class="button__vaga__parecida__bloco">
+                    <a href="" name="button" class="vaga__parecida__button">
+                        VISUALIZAR VAGA
+                    </a>
                 </div>
             </div>
         </div>
