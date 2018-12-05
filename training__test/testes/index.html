@@ -390,7 +390,7 @@
         font-size: 9em;
         color: #004c88;
     }
-    #myModal .modal-dialog, #modalCandidaturaEnviada .modal-dialog, #modalCandidaturasAcabaram .modal-dialog{
+    #modalEnvioDeCV .modal-dialog, #modalCandidaturaEnviada .modal-dialog, #modalCandidaturasAcabaram .modal-dialog{
         transform: translate(0,-50%);
         top: 50%;
         margin: 0 auto;
@@ -625,7 +625,7 @@
             <div class="button__container">
                 <div class="button__candidatar__area">
                     <!-- abrir modal sem js -->
-                    <!-- <button onclick="move()" ontype="button" name="button" class="button" data-toggle="modal" data-target="#myModal">
+                    <!-- <button onclick="move()" ontype="button" name="button" class="button" data-toggle="modal" data-target="#modalEnvioDeCV">
                         <strong>CANDIDATAR-SE</strong>
                     </button> -->
                     <!-- abrir modal com js -->
@@ -717,7 +717,7 @@
     </section>
 
     <!-- Modal Enviando candidatura-->
-    <div class="modal fade" id="myModal" role="dialog" disabled="disabled">
+    <div class="modal fade" id="modalEnvioDeCV" role="dialog" disabled>
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -825,8 +825,8 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $("#myBtn").click(function(){
-            // $("#myModal").modal({backdrop: "static"}); não pode fechar a modal clickando fora da modal
-            $("#myModal").modal("show");
+            // $("#modalEnvioDeCV").modal({backdrop: "static"}); não pode fechar a modal clickando fora da modal
+            $("#modalEnvioDeCV").modal("show");
         });
     });
     var count = 0;
@@ -836,7 +836,7 @@
         if(count > 1){
             $(document).ready(function(){
                 $("#modalCandidaturasAcabaram").modal("show");
-                $(".modal").attr("disabled", true);
+                $("modalEnvioDeCV").prop("disabled", true);
             });
         }
         //Barra de progresso
@@ -848,7 +848,7 @@
                 clearInterval(id);
                 $(document).ready(function(){
                     $("#modalCandidaturaEnviada").modal("show");
-                    $("#myModal").modal("hide");
+                    $("#modalEnvioDeCV").modal("hide");
                 });
             } else {
                 perc++;
