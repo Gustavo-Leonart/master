@@ -717,7 +717,7 @@
     </section>
 
     <!-- Modal Enviando candidatura-->
-    <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal fade" id="myModal" role="dialog" disabled="disabled">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -797,7 +797,7 @@
                     <p class="modal__body__paragraph">
                         Agora é só aguardar o responsável pela vaga visualizar seu currículo.<br>
                         Avisaremos assim que isso acontecer.<br>
-                        Você ainda possui <strong class="modal__num__candidaturas">02 candidaturas</strong> gratuitas
+                        Você ainda possui <strong ><span class="modal__num__candidaturas">0</span> candidaturas</strong> gratuitas
                     </p>
                     <div class="btn__modal__candidatura__sucesso">
                         <div class="btn__modal__blocos">
@@ -831,15 +831,15 @@
     });
     var count = 0;
     function numberPercent() {
-        count ++
+        //contador de clicks para a modalCandidaturasAcabaram
+        count ++;
         if(count > 1){
             $(document).ready(function(){
                 $("#modalCandidaturasAcabaram").modal("show");
-                $("#myModal").modal().hide();
-                // $("#myModal").prop("disabled", true);
-                // $("#myModal").stop(true, true);
+                $(".modal").attr("disabled", true);
             });
         }
+        //Barra de progresso
         var elem = document.getElementById("percent");
         var perc = 0;
         var id = setInterval(frame, 50);
