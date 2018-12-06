@@ -15,7 +15,8 @@
     <!-- Main CSS (sass compiled)> -->
     <style>
     body{
-        background-color:#fafafa;
+        /* background-color:#fafafa; */
+        background-color:#f5f5f5;
         padding: 0;
         margin: 0;
         font-family:'Roboto', sans-serif;
@@ -39,7 +40,7 @@
     }
     /* cabeçalho */
     .container{
-        width: 60%;
+        width: 64%;
         max-width: 1259px;
     }
     .modal{
@@ -177,7 +178,6 @@
     .button__candidatar__area{
         margin: 0 auto;
     }
-
     .button__candidatar{
         color: #463001;
         background-color: #ffc501;
@@ -203,17 +203,19 @@
         font-weight: bolder;
         font-size: 1.2em;
         text-align: center;
+        margin-bottom: 8px;
     }
     .vaga__aparece__em__conteudo{
         display: flex;
         flex-wrap: wrap;
+        margin: 0px 16px;
     }
     .vaga__aparece__em__paragraph{
         background-color: #ffffff;
         color: #414141;
         margin: 4px;
         font-weight: 500;
-        font-size: 1em;
+        font-size: .9em;
         border-radius: 4px;
         padding: 4px 8px;
         text-decoration: none;
@@ -224,10 +226,13 @@
     }
     /* Vagas parecidas */
     .vagas__parecidas__blocos{
+        padding: 24px 0px;
         display: flex;
         justify-content: center;
-        align-items: center;
-        width: 60%;
+    }
+    .vaga__parecida__bloco{
+        /* flex:1; */
+        margin: 0px 20px;
         padding: 0;
     }
     .vaga__parecida__bloco:first-of-type{
@@ -235,10 +240,6 @@
     }
     .vaga__parecida__bloco:last-of-type{
         margin-right: 0px;
-    }
-    .vaga__parecida__bloco{
-        margin: 24px 12px;
-        width: 100%;
     }
     .vaga__parecida__header__bloco{
         background-color: #004c88;
@@ -248,11 +249,11 @@
     }
     .titulo__vagas__parecidas__bloco{
         font-weight: bolder;
-        font-size: 1.1em;
+        font-size: 1.15em;
         margin: 0;
     }
     .descricao__vagas__parecidas__bloco{
-        font-size: .85em;
+        font-size: .9em;
         margin: 0;
     }
     .button__vaga__parecida__bloco{
@@ -526,6 +527,15 @@
         .header__container{
             padding: 0px 8px;
         }
+        .vaga__parecida__bloco{
+            margin: 24px 8px;
+        }
+        .vaga__parecida__bloco:first-of-type{
+            margin-left: 8px;
+        }
+        .vaga__parecida__bloco:last-of-type{
+            margin-right: 8px;
+        }
         .modal-dialog{
             text-align: center;
         }
@@ -543,10 +553,15 @@
         }
     }
     @media screen and (min-width:600px) and (max-width:959px){
-        .container{
-        }
         .vaga__parecida__bloco{
             width: auto;
+            margin: 24px;
+        }
+        .vaga__parecida__bloco:first-of-type{
+            margin-left: 24px;
+        }
+        .vaga__parecida__bloco:last-of-type{
+            margin-right: 24px;
         }
     }
     </style>
@@ -554,12 +569,12 @@
 <body>
     <!-- cabeçalho -->
     <header class="container-fluid header__container">
-        <div class="col-xs-4 col-sm-1 col-md-1 col-lg-1 header__logo">
+        <div class="col-xs-9 col-sm-4 col-md-3 col-lg-3 header__logo">
             <a href="https://www.bne.com.br/">
                 <img class="img" src="images/nova-pagina-vaga.jpg">
             </a>
         </div>
-        <div class="col-xs-8 col-sm-11 col-md-11 col-lg-11 header__log__in">
+        <div class="col-xs-3 col-sm-8 col-md-9 col-lg-9 header__log__in">
             <a href="#" class="header__login__link">
                 ENTRAR
                 <i class="fa fa-sign-in-alt"></i>
@@ -654,7 +669,7 @@
         </div>
     </section>
     <!-- vagas que são parecidas -->
-    <section class="vagas__parecidas__container">
+    <section>
         <div class="container vagas__parecidas__titulo">
             Vagas parecidas com esta:
         </div>
