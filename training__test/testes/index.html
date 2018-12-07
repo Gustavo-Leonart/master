@@ -644,7 +644,7 @@
                         <strong>CANDIDATAR-SE</strong>
                     </button> -->
                     <!-- abrir modal com js -->
-                    <button onclick="numberPercent()" ontype="button" name="button" class="button__candidatar" id="myBtn">
+                    <button onclick="numberPercent()" ontype="button" name="button" class="button__candidatar" id="btnCandidatar">
                         CANDIDATAR-SE
                     </button>
                 </div>
@@ -840,7 +840,7 @@
 </html>
 <script type="text/javascript">
     $(document).ready(function(){
-        $("#myBtn").click(function(){
+        $("#btnCandidatar").click(function(){
             // $("#modalEnvioDeCV").modal({backdrop: "static"}); não pode fechar a modal clickando fora da modal
             $("#modalEnvioDeCV").modal("show");
         });
@@ -867,7 +867,7 @@
         count++;
         if(count > 3){
             clearInterval(id);
-            $("#myBtn").on('click', function(){
+            $("#btnCandidatar").on('click', function(){
                 $("#modalCandidaturasAcabaram").modal("show");
                 $("#modalEnvioDeCV").finish().modal("hide");
             });
