@@ -201,7 +201,7 @@
     }
     .vaga__aparece__em__título{
         font-weight: bolder;
-        font-size: 1.2em;
+        font-size: 1.3em;
         text-align: center;
         margin-bottom: 8px;
     }
@@ -226,9 +226,9 @@
     }
     /* Vagas parecidas */
     .vagas__parecidas__blocos{
-        padding: 24px 0px;
+        padding: 0px 0px 24px;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
     }
     .vaga__parecida__bloco{
         /* flex:1; */
@@ -240,6 +240,12 @@
     }
     .vaga__parecida__bloco:last-of-type{
         margin-right: 0px;
+    }
+    .vagas__parecidas__titulo{
+        font-weight: bolder;
+        font-size: 1.3em;
+        text-align: center;
+        margin-bottom: 24px;
     }
     .vaga__parecida__header__bloco{
         background-color: #004c88;
@@ -263,11 +269,6 @@
         display: flex;
         justify-content: center;
         box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.19);
-    }
-    .vagas__parecidas__titulo{
-        font-weight: bolder;
-        font-size: 1.2em;
-        text-align: center;
     }
     .vaga__parecida__button{
         background-color: #004c88;
@@ -793,7 +794,6 @@
             </div>
         </div>
     </div>
-
     <!-- Modal candidatura enviada-->
     <div class="modal fade" id="modalCandidaturaEnviada" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -836,7 +836,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
-
 <!-- script das modais -->
 <script type="text/javascript">
     $(document).ready(function(){
@@ -871,12 +870,11 @@
                 $("#modalEnvioDeCV").finish().modal("hide");
             });
         }
-
         //numero restantes de candidaturas
         var numCand = document.getElementById("modal__num__candidaturas");
         if(count >= 0){
             // count --;
-            numCand.innerHTML =W count - 1;
+            numCand.innerHTML = count - 1;
         }
     }
 </script>
