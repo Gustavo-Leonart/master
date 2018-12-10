@@ -40,7 +40,7 @@
     }
     /* cabeçalho */
     .container{
-        width: 64%;
+        width: 65%;
         max-width: 1259px;
     }
     .modal{
@@ -208,7 +208,7 @@
     .vaga__aparece__em__conteudo{
         display: flex;
         flex-wrap: wrap;
-        margin: 0px 16px;
+        margin: 0px 24px;
     }
     .vaga__aparece__em__paragraph{
         background-color: #ffffff;
@@ -232,7 +232,7 @@
     }
     .vaga__parecida__bloco{
         /* flex:1; */
-        margin: 0px 20px;
+        margin: 0px 24px;
         padding: 0;
     }
     .vaga__parecida__bloco:first-of-type{
@@ -253,7 +253,7 @@
         margin: 0;
     }
     .descricao__vagas__parecidas__bloco{
-        font-size: .9em;
+        font-size: .85em;
         margin: 0;
     }
     .button__vaga__parecida__bloco{
@@ -639,11 +639,11 @@
         <div class="container button__section">
             <div class="button__container">
                 <div class="button__candidatar__area">
-                    <!-- abrir modal sem js -->
+                    <!-- abrir modal sem jquery -->
                     <!-- <button onclick="move()" ontype="button" name="button" class="button" data-toggle="modal" data-target="#modalEnvioDeCV">
                         <strong>CANDIDATAR-SE</strong>
                     </button> -->
-                    <!-- abrir modal com js -->
+                    <!-- abrir modal com jquery -->
                     <button onclick="numberPercent()" ontype="button" name="button" class="button__candidatar" id="btnCandidatar">
                         CANDIDATAR-SE
                     </button>
@@ -730,7 +730,6 @@
             </div>
         </div>
     </section>
-
     <!-- Modal Enviando candidatura-->
     <div class="modal fade" id="modalEnvioDeCV" role="dialog" disabled>
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -795,7 +794,6 @@
         </div>
     </div>
 
-
     <!-- Modal candidatura enviada-->
     <div class="modal fade" id="modalCandidaturaEnviada" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -813,7 +811,7 @@
                     <p class="modal__body__paragraph">
                         Agora é só aguardar o responsável pela vaga visualizar seu currículo.<br>
                         Avisaremos assim que isso acontecer.<br>
-                        Você ainda possui <strong><span class="modal__num__candidaturas">0</span> candidaturas</strong> gratuitas
+                        Você ainda possui <strong><span id="modal__num__candidaturas">00</span> candidaturas</strong> gratuitas
                     </p>
                     <div class="btn__modal__candidatura__sucesso">
                         <div class="btn__modal__blocos">
@@ -838,14 +836,15 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+<!-- script das modais -->
 <script type="text/javascript">
     $(document).ready(function(){
         $("#btnCandidatar").click(function(){
-            // $("#modalEnvioDeCV").modal({backdrop: "static"}); não pode fechar a modal clickando fora da modal
             $("#modalEnvioDeCV").modal("show");
         });
     });
-    var count = 0;
+    var count = 4;
     function numberPercent() {
         //Barra de progresso
         var elem = document.getElementById("percent");
@@ -864,13 +863,20 @@
             }
         }
         //contador de clicks para a modalCandidaturasAcabaram
-        count++;
-        if(count > 3){
+        count--;
+        if(count == 0){
             clearInterval(id);
             $("#btnCandidatar").on('click', function(){
                 $("#modalCandidaturasAcabaram").modal("show");
                 $("#modalEnvioDeCV").finish().modal("hide");
             });
+        }
+
+        //numero restantes de candidaturas
+        var numCand = document.getElementById("modal__num__candidaturas");
+        if(count >= 0){
+            // count --;
+            numCand.innerHTML =W count - 1;
         }
     }
 </script>
