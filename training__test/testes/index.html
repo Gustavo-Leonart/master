@@ -227,22 +227,16 @@
         text-decoration: none;
     }
     /* Vagas parecidas */
+    .vagas__parecidas__container{
+        padding: 0px;
+    }
     .vagas__parecidas__blocos{
-        padding: 0px 0px 24px;
+        padding-bottom: 24px;
         display: flex;
         justify-content: space-between;
     }
     .vaga__parecida__bloco{
-        /* flex:1; */
-        margin: 0px 16px;
-        padding: 0;
-        width: 100%;
-    }
-    .vaga__parecida__bloco:first-of-type{
-        margin-left: 0px;
-    }
-    .vaga__parecida__bloco:last-of-type{
-        margin-right: 0px;
+        margin: 0px;
     }
     .vagas__parecidas__titulo{
         font-weight: 500;
@@ -253,7 +247,7 @@
     .vaga__parecida__header__bloco{
         background-color: #004c88;
         color: #ffffff;
-        padding: 24px;
+        padding: 24px 32px;
         border-radius: 8px 8px 0 0;
     }
     .titulo__vagas__parecidas__bloco{
@@ -674,11 +668,11 @@
         </div>
     </section>
     <!-- vagas que são parecidas -->
-    <section>
-        <div class="container vagas__parecidas__titulo">
+    <section class="container vagas__parecidas__container">
+        <div class="vagas__parecidas__titulo">
             Vagas parecidas com esta:
         </div>
-        <div class="container vagas__parecidas__blocos">
+        <div class="vagas__parecidas__blocos">
             <div class="vaga__parecida__bloco">
                 <div class="vaga__parecida__header__bloco">
                     <p class="titulo__vagas__parecidas__bloco">
@@ -840,8 +834,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
-<!-- script das modais -->
 <script type="text/javascript">
+//script das modais
     $(document).ready(function(){
         $("#btnCandidatar").click(function(){
             $("#modalEnvioDeCV").modal("show");
