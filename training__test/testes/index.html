@@ -355,8 +355,11 @@
         background-color: #ffc501;
         border: none;
         border-radius: 4px;
-        padding: 8px 100px;
+        padding: 8px 104px;
         font-weight: 900;
+    }
+    .btn__modal__selos:hover{
+        color: #9a9a9a;
     }
     /* modal candidatura enviada */
     .btn__modal__candidatura__sucesso{
@@ -378,6 +381,9 @@
         border: none;
         border-radius: 4px;
         padding: 8px 36px;
+    }
+    .btn__modal__obter__vip:hover, .btn__modal__vip:hover{
+        color: #443000;
     }
     .icone__check__area{
         margin:16px;
@@ -784,15 +790,15 @@
                     </p>
                     <div class="btn__modal__candidaturas__acabaram">
                         <div class="btn__modal__blocos">
-                            <button name="btn1" class="btn__modal__selos">
+                            <a href="https://www.bne.com.br/" name="btn1" class="btn__modal__selos">
                                 <strong>COLETAR SELOS</strong>
-                            </button>
+                            </a>
                         </div>
                         <p style="margin:8px 0;">ou</p>
                         <div class="btn__modal__blocos">
-                            <button name="btn2" class="btn__modal__vip">
+                            <a href="https://www.bne.com.br/" name="btn2" class="btn__modal__vip">
                                 QUERO SER VIP
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -824,11 +830,11 @@
                                 <strong>CONTINUAR</strong>
                             </button>
                         </div>
-                        <p style="margin:8px 0;">ou</p>
+                        <p style="margin-top:8px;">ou</p>
                         <div class="btn__modal__blocos">
-                            <button name="btn2" class="btn__modal__obter__vip">
+                            <a href="https://www.bne.com.br/" name="btn2" class="btn__modal__obter__vip">
                                 <strong>OBTER CANDIDATURAS ILIMITADAS</strong>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -866,7 +872,7 @@
         }
         //contador de clicks para a modalCandidaturasAcabaram
         count--;
-        if(count <= 0){
+        if(count < 1){
             clearInterval(id);
             $("#btnCandidatar").on('click', function(){
                 $("#modalCandidaturasAcabaram").modal("show");
